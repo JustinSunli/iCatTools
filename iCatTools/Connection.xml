@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="yes"?>
+<TConnection>
+  <ConnectionList>
+    <rid>1</rid>
+    <DataSource>.</DataSource>
+    <InitialCatalog>FoodIntegrityData</InitialCatalog>
+    <UserID>sa</UserID>
+    <Password>bhsoftsa</Password>
+  </ConnectionList>
+  <ConnectionList>
+    <rid>2</rid>
+    <DataSource>192.163.20.1</DataSource>
+    <InitialCatalog>MineSystemData</InitialCatalog>
+    <UserID>MineSystemData</UserID>
+    <Password>MineSystemData</Password>
+  </ConnectionList>
+  <ConnectionList>
+    <rid>3</rid>
+    <DataSource>.</DataSource>
+    <InitialCatalog>icatdata</InitialCatalog>
+    <UserID>sa</UserID>
+    <Password>bhsoftsa</Password>
+  </ConnectionList>
+  <ConnectionList>
+    <rid>4</rid>
+    <DataSource>192.163.20.1</DataSource>
+    <InitialCatalog>FoodIntegrityData</InitialCatalog>
+    <UserID>FoodIntegrityData</UserID>
+    <Password>FoodIntegrityData</Password>
+  </ConnectionList>
+</TConnection>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppParams>
+  <AppParamsList>
+    <rid>1</rid>
+    <IpAddress>192.163.20.16</IpAddress>
+    <Port>8810</Port>
+  </AppParamsList>
+  <AppParamsList>
+    <rid>1</rid>
+    <IpAddress>10.1.10.102</IpAddress>
+    <Port>8810</Port>
+  </AppParamsList>
+  <AppParamsList>
+    <rid>2</rid>
+    <IpAddress>192.163.20.101</IpAddress>
+    <Port>8810</Port>
+  </AppParamsList>
+</AppParams>

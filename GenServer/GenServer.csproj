@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1BFA063-AB05-496F-9686-6930B367F79F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenServer</RootNamespace>
+    <AssemblyName>GenServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>48icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="command\AbstractRecvCMD.cs" />
+    <Compile Include="command\AbstractSendCMD.cs" />
+    <Compile Include="command\CMDCompute.cs" />
+    <Compile Include="command\CommandFactory.cs" />
+    <Compile Include="command\CommandType.cs" />
+    <Compile Include="command\RecvBeat.cs" />
+    <Compile Include="command\RecvMsg.cs" />
+    <Compile Include="command\RecvRequstVersion.cs" />
+    <Compile Include="command\SendAppVersion.cs" />
+    <Compile Include="common\AppConfig.cs" />
+    <Compile Include="common\ApplicationBase.cs" />
+    <Compile Include="common\EnumCheck.cs" />
+    <Compile Include="common\FormCheck.cs" />
+    <Compile Include="common\IconStatus.cs" />
+    <Compile Include="common\MessageBase.cs" />
+    <Compile Include="Frm\GenKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\GenKey.Designer.cs">
+      <DependentUpon>GenKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SendVersionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\SendVersionFrm.Designer.cs">
+      <DependentUpon>SendVersionFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="socket\SrvConnectParams.cs" />
+    <Compile Include="socket\TcpClt.cs" />
+    <Compile Include="socket\TcpSrv.cs" />
+    <Compile Include="socket\TextBoxView.cs" />
+    <EmbeddedResource Include="Frm\GenKey.resx">
+      <DependentUpon>GenKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\SendVersionFrm.resx">
+      <DependentUpon>SendVersionFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="update.xml" />
+    <EmbeddedResource Include="16status.ico" />
+    <Content Include="32icon.ico" />
+    <Content Include="48icon.ico" />
+    <EmbeddedResource Include="Icon\16status.ico" />
+    <Content Include="Icon\24icon.ico" />
+    <Content Include="Icon\32icon.ico" />
+    <Content Include="Icon\48icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GenDataLibrary\GenDataLibrary.csproj">
+      <Project>{69A1EFDC-BE3C-4A48-B82E-2937CF512235}</Project>
+      <Name>GenDataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnKeyGen\SnKeyGen.csproj">
+      <Project>{0391C0E0-C7AE-440B-B3B3-C8F36C647329}</Project>
+      <Name>SnKeyGen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

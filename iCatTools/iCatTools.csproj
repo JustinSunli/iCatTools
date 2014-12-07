@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B3F72EF-EF94-42DA-9858-5FBD7B6EDBC1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iCatTools</RootNamespace>
+    <AssemblyName>iCatTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FileAlignment>8192</FileAlignment>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>newicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="business\AutoUpdate.cs" />
+    <Compile Include="business\HardDisk.cs" />
+    <Compile Include="business\Register.cs" />
+    <Compile Include="command\AbstractRecvCMD.cs" />
+    <Compile Include="command\AbstractSendCMD.cs" />
+    <Compile Include="command\CMDCompute.cs" />
+    <Compile Include="command\CommandFactory.cs" />
+    <Compile Include="command\CommandType.cs" />
+    <Compile Include="command\RecvBeat.cs" />
+    <Compile Include="command\RecvVersion.cs" />
+    <Compile Include="command\SendBeat.cs" />
+    <Compile Include="command\SendMsg.cs" />
+    <Compile Include="command\SendRequestVersion.cs" />
+    <Compile Include="common\ApplicationBase.cs" />
+    <Compile Include="common\Config.cs" />
+    <Compile Include="common\CurrBusiBase.cs" />
+    <Compile Include="common\EnumCheck.cs" />
+    <Compile Include="common\FormCheck.cs" />
+    <Compile Include="common\IconStatus.cs" />
+    <Compile Include="common\Log.cs" />
+    <Compile Include="common\MessageBase.cs" />
+    <Compile Include="common\UxRichTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="common\UxSQLRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Frm\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\CodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\CodeEditor.Designer.cs">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\DBManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\DBManager.Designer.cs">
+      <DependentUpon>DBManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\ExecSql.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\ExecSql.Designer.cs">
+      <DependentUpon>ExecSql.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\FileList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\FileList.Designer.cs">
+      <DependentUpon>FileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\GenKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\GenKey.Designer.cs">
+      <DependentUpon>GenKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\GenTableImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\GenTableImage.Designer.cs">
+      <DependentUpon>GenTableImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\MainFrmThread.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\MainView.cs" />
+    <Compile Include="Frm\NotRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\NotRegister.Designer.cs">
+      <DependentUpon>NotRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SelectConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\SelectConnection.Designer.cs">
+      <DependentUpon>SelectConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SendMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\SendMessage.Designer.cs">
+      <DependentUpon>SendMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SetLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\SetLibrary.Designer.cs">
+      <DependentUpon>SetLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SetUIParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\SetUIParams.Designer.cs">
+      <DependentUpon>SetUIParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\SysParameters.cs" />
+    <Compile Include="handle\AccessLayer.cs" />
+    <Compile Include="handle\BusinessLayer.cs" />
+    <Compile Include="handle\ControlView.cs" />
+    <Compile Include="handle\DataLayer.cs" />
+    <Compile Include="handle\DBImage.cs" />
+    <Compile Include="handle\SqlGen.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="socket\TcpClt.cs" />
+    <Compile Include="socket\TcpSrv.cs" />
+    <Compile Include="socket\TextBoxView.cs" />
+    <EmbeddedResource Include="Frm\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\CodeEditor.resx">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\DBManager.resx">
+      <DependentUpon>DBManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\ExecSql.resx">
+      <DependentUpon>ExecSql.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\FileList.resx">
+      <DependentUpon>FileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\GenKey.resx">
+      <DependentUpon>GenKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\GenTableImage.resx">
+      <DependentUpon>GenTableImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\NotRegister.resx">
+      <DependentUpon>NotRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\SelectConnection.resx">
+      <DependentUpon>SelectConnection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\SendMessage.resx">
+      <DependentUpon>SendMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\SetLibrary.resx">
+      <DependentUpon>SetLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\SetUIParams.resx">
+      <DependentUpon>SetUIParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="codetemplate\uicommon.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="codetemplate\uieditcombo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="doc\about.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="24Icon.ico" />
+    <Content Include="32Icon.ico" />
+    <EmbeddedResource Include="Icon\newicon.ico" />
+    <Content Include="ico\32Icon.ico" />
+    <Content Include="Connection.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="allicon\access_%28add%29_16x16.gif" />
+    <Content Include="allicon\access_%28delete%29_16x16.gif" />
+    <Content Include="allicon\access_%28edit%29_16x16.gif" />
+    <Content Include="allicon\access_16x16.gif" />
+    <Content Include="allicon\add_16x16.gif" />
+    <Content Include="allicon\administrator1_%28add%29_16x16.gif" />
+    <Content Include="allicon\administrator1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\administrator1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\administrator1_16x16.gif" />
+    <Content Include="allicon\administrator2_%28add%29_16x16.gif" />
+    <Content Include="allicon\administrator2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\administrator2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\administrator2_16x16.gif" />
+    <Content Include="allicon\administrator3_%28add%29_16x16.gif" />
+    <Content Include="allicon\administrator3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\administrator3_%28edit%29_16x16.gif" />
+    <Content Include="allicon\administrator3_16x16.gif" />
+    <Content Include="allicon\anchor_%28add%29_16x16.gif" />
+    <Content Include="allicon\anchor_%28delete%29_16x16.gif" />
+    <Content Include="allicon\anchor_%28edit%29_16x16.gif" />
+    <Content Include="allicon\anchor_16x16.gif" />
+    <Content Include="allicon\anonymous_%28add%29_16x16.gif" />
+    <Content Include="allicon\anonymous_%28delete%29_16x16.gif" />
+    <Content Include="allicon\anonymous_%28edit%29_16x16.gif" />
+    <Content Include="allicon\anonymous_16x16.gif" />
+    <Content Include="allicon\application_%28add%29_16x16.gif" />
+    <Content Include="allicon\application_%28delete%29_16x16.gif" />
+    <Content Include="allicon\application_16x16.gif" />
+    <Content Include="allicon\attention1_16x16.gif" />
+    <Content Include="allicon\attention2_16x16.gif" />
+    <Content Include="allicon\attention3_16x16.gif" />
+    <Content Include="allicon\backup_%28add%29_16x16.gif" />
+    <Content Include="allicon\backup_%28delete%29_16x16.gif" />
+    <Content Include="allicon\backup_%28edit%29_16x16.gif" />
+    <Content Include="allicon\backup_%28start%29_16x16.gif" />
+    <Content Include="allicon\backup_%28stop%29_16x16.gif" />
+    <Content Include="allicon\backup_16x16.gif" />
+    <Content Include="allicon\bold_16x16.gif" />
+    <Content Include="allicon\business_%28add%29_16x16.gif" />
+    <Content Include="allicon\business_%28delete%29_16x16.gif" />
+    <Content Include="allicon\business_%28edit%29_16x16.gif" />
+    <Content Include="allicon\business_16x16.gif" />
+    <Content Include="allicon\calculate_16x16.gif" />
+    <Content Include="allicon\check-in_16x16.gif" />
+    <Content Include="allicon\check-out_16x16.gif" />
+    <Content Include="allicon\color1_16x16.gif" />
+    <Content Include="allicon\color2_16x16.gif" />
+    <Content Include="allicon\color3_16x16.gif" />
+    <Content Include="allicon\comment1_%28add%29_16x16.gif" />
+    <Content Include="allicon\comment1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\comment1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\comment1_16x16.gif" />
+    <Content Include="allicon\comment2_%28add%29_16x16.gif" />
+    <Content Include="allicon\comment2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\comment2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\comment2_16x16.gif" />
+    <Content Include="allicon\comment3_%28add%29_16x16.gif" />
+    <Content Include="allicon\comment3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\comment3_%28edit%29_16x16.gif" />
+    <Content Include="allicon\comment3_16x16.gif" />
+    <Content Include="allicon\computer1_%28add%29_16x16.gif" />
+    <Content Include="allicon\computer1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\computer1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\computer1_%28start%29_16x16.gif" />
+    <Content Include="allicon\computer1_%28stop%29_16x16.gif" />
+    <Content Include="allicon\computer1_16x16.gif" />
+    <Content Include="allicon\computer2_%28add%29_16x16.gif" />
+    <Content Include="allicon\computer2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\computer2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\computer2_%28start%29_16x16.gif" />
+    <Content Include="allicon\computer2_%28stop%29_16x16.gif" />
+    <Content Include="allicon\computer2_16x16.gif" />
+    <Content Include="allicon\connect1_16x16.gif" />
+    <Content Include="allicon\connect2_16x16.gif" />
+    <Content Include="allicon\connect3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\connect3_16x16.gif" />
+    <Content Include="allicon\contact_%28add%29_16x16.gif" />
+    <Content Include="allicon\contact_%28delete%29_16x16.gif" />
+    <Content Include="allicon\contact_%28edit%29_16x16.gif" />
+    <Content Include="allicon\contact_16x16.gif" />
+    <Content Include="allicon\copy_16x16.gif" />
+    <Content Include="allicon\cut_16x16.gif" />
+    <Content Include="allicon\database_%28add%29_16x16.gif" />
+    <Content Include="allicon\database_%28delete%29_16x16.gif" />
+    <Content Include="allicon\database_%28edit%29_16x16.gif" />
+    <Content Include="allicon\database_%28start%29_16x16.gif" />
+    <Content Include="allicon\database_%28stop%29_16x16.gif" />
+    <Content Include="allicon\database_16x16.gif" />
+    <Content Include="allicon\database_export_16x16.gif" />
+    <Content Include="allicon\database_field_%28add%29_16x16.gif" />
+    <Content Include="allicon\database_field_%28delete%29_16x16.gif" />
+    <Content Include="allicon\database_field_%28edit%29_16x16.gif" />
+    <Content Include="allicon\database_field_16x16.gif" />
+    <Content Include="allicon\database_form_%28add%29_16x16.gif" />
+    <Content Include="allicon\database_form_%28delete%29_16x16.gif" />
+    <Content Include="allicon\database_form_%28edit%29_16x16.gif" />
+    <Content Include="allicon\database_form_16x16.gif" />
+    <Content Include="allicon\database_import_16x16.gif" />
+    <Content Include="allicon\database_table_%28add%29_16x16.gif" />
+    <Content Include="allicon\database_table_%28delete%29_16x16.gif" />
+    <Content Include="allicon\database_table_%28edit%29_16x16.gif" />
+    <Content Include="allicon\database_table_16x16.gif" />
+    <Content Include="allicon\data_%28add%29_16x16.gif" />
+    <Content Include="allicon\data_%28delete%29_16x16.gif" />
+    <Content Include="allicon\data_%28edit%29_16x16.gif" />
+    <Content Include="allicon\data_%28play%29_16x16.gif" />
+    <Content Include="allicon\data_%28stop%29_16x16.gif" />
+    <Content Include="allicon\data_16x16.gif" />
+    <Content Include="allicon\date_16x16.gif" />
+    <Content Include="allicon\delete_16x16.gif" />
+    <Content Include="allicon\disconnect1_16x16.gif" />
+    <Content Include="allicon\disconnect2_16x16.gif" />
+    <Content Include="allicon\down_16x16.gif" />
+    <Content Include="allicon\edit_16x16.gif" />
+    <Content Include="allicon\eject_16x16.gif" />
+    <Content Include="allicon\error_16x16.gif" />
+    <Content Include="allicon\fast_forward_16x16.gif" />
+    <Content Include="allicon\file_%28add%29_16x16.gif" />
+    <Content Include="allicon\file_%28delete%29_16x16.gif" />
+    <Content Include="allicon\file_%28edit%29_16x16.gif" />
+    <Content Include="allicon\file_16x16.gif" />
+    <Content Include="allicon\file_manager_%28add%29_16x16.gif" />
+    <Content Include="allicon\file_manager_%28delete%29_16x16.gif" />
+    <Content Include="allicon\file_manager_16x16.gif" />
+    <Content Include="allicon\filter_%28add%29_16x16.gif" />
+    <Content Include="allicon\filter_%28delete%29_16x16.gif" />
+    <Content Include="allicon\filter_%28edit%29_16x16.gif" />
+    <Content Include="allicon\filter_16x16.gif" />
+    <Content Include="allicon\finances_%28add%29_16x16.gif" />
+    <Content Include="allicon\finances_%28delete%29_16x16.gif" />
+    <Content Include="allicon\finances_%28edit%29_16x16.gif" />
+    <Content Include="allicon\finances_16x16.gif" />
+    <Content Include="allicon\first_16x16.gif" />
+    <Content Include="allicon\flag1_%28add%29_16x16.gif" />
+    <Content Include="allicon\flag1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\flag1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\flag1_16x16.gif" />
+    <Content Include="allicon\flag2_%28add%29_16x16.gif" />
+    <Content Include="allicon\flag2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\flag2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\flag2_16x16.gif" />
+    <Content Include="allicon\flag3_%28add%29_16x16.gif" />
+    <Content Include="allicon\flag3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\flag3_%28edit%29_16x16.gif" />
+    <Content Include="allicon\flag3_16x16.gif" />
+    <Content Include="allicon\flag4_%28add%29_16x16.gif" />
+    <Content Include="allicon\flag4_%28delete%29_16x16.gif" />
+    <Content Include="allicon\flag4_%28edit%29_16x16.gif" />
+    <Content Include="allicon\flag4_16x16.gif" />
+    <Content Include="allicon\folder_%28add%29_16x16.gif" />
+    <Content Include="allicon\folder_%28close%29_%28edit%29_16x16.gif" />
+    <Content Include="allicon\folder_%28delete%29_16x16.gif" />
+    <Content Include="allicon\folder_closed_16x16.gif" />
+    <Content Include="allicon\folder_open_16x16.gif" />
+    <Content Include="allicon\format1_16x16.gif" />
+    <Content Include="allicon\fromat2_16x16.gif" />
+    <Content Include="allicon\graph1_16x16.gif" />
+    <Content Include="allicon\graph2_16x16.gif" />
+    <Content Include="allicon\help_16x16.gif" />
+    <Content Include="allicon\home_16x16.gif" />
+    <Content Include="allicon\image_%28add%29_16x16.gif" />
+    <Content Include="allicon\image_%28delete%29_16x16.gif" />
+    <Content Include="allicon\image_%28edit%29_16x16.gif" />
+    <Content Include="allicon\image_16x16.gif" />
+    <Content Include="allicon\information_16x16.gif" />
+    <Content Include="allicon\italic_16x16.gif" />
+    <Content Include="allicon\label_%28add%29_16x16.gif" />
+    <Content Include="allicon\label_%28delete%29_16x16.gif" />
+    <Content Include="allicon\label_%28edit%29_16x16.gif" />
+    <Content Include="allicon\label_16x16.gif" />
+    <Content Include="allicon\last_16x16.gif" />
+    <Content Include="allicon\law_%28add%29_16x16.gif" />
+    <Content Include="allicon\law_%28delete%29_16x16.gif" />
+    <Content Include="allicon\law_%28edit%29_16x16.gif" />
+    <Content Include="allicon\law_16x16.gif" />
+    <Content Include="allicon\left_16x16.gif" />
+    <Content Include="allicon\level_down_16x16.gif" />
+    <Content Include="allicon\level_up_16x16.gif" />
+    <Content Include="allicon\link_%28add%29_16x16.gif" />
+    <Content Include="allicon\link_%28delete%29_16x16.gif" />
+    <Content Include="allicon\link_%28edit%29_16x16.gif" />
+    <Content Include="allicon\link_16x16.gif" />
+    <Content Include="allicon\lock_16x16.gif" />
+    <Content Include="allicon\mail1_%28add%29_16x16.gif" />
+    <Content Include="allicon\mail1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\mail1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\mail1_16x16.gif" />
+    <Content Include="allicon\mail2_%28add%29_16x16.gif" />
+    <Content Include="allicon\mail2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\mail2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\mail2_16x16.gif" />
+    <Content Include="allicon\measurement1_16x16.gif" />
+    <Content Include="allicon\measurement2_16x16.gif" />
+    <Content Include="allicon\move_16x16.gif" />
+    <Content Include="allicon\music_%28add%29_16x16.gif" />
+    <Content Include="allicon\music_%28delete%29_16x16.gif" />
+    <Content Include="allicon\music_%28edit%29_16x16.gif" />
+    <Content Include="allicon\music_%28stop%29_16x16.gif" />
+    <Content Include="allicon\music_16x16.gif" />
+    <Content Include="allicon\notepad_%28add%29_16x16.gif" />
+    <Content Include="allicon\notepad_%28delete%29_16x16.gif" />
+    <Content Include="allicon\notepad_%28edit%29_16x16.gif" />
+    <Content Include="allicon\notepad_16x16.gif" />
+    <Content Include="allicon\ok_16x16.gif" />
+    <Content Include="allicon\ordered_list_16x16.gif" />
+    <Content Include="allicon\paste_16x16.gif" />
+    <Content Include="allicon\pause_16x16.gif" />
+    <Content Include="allicon\pay_%28add%29_16x16.gif" />
+    <Content Include="allicon\pay_%28delete%29_16x16.gif" />
+    <Content Include="allicon\pay_%28edit%29_16x16.gif" />
+    <Content Include="allicon\pay_16x16.gif" />
+    <Content Include="allicon\photo_%28add%29_16x16.gif" />
+    <Content Include="allicon\photo_%28delete%29_16x16.gif" />
+    <Content Include="allicon\photo_%28edit%29_16x16.gif" />
+    <Content Include="allicon\photo_16x16.gif" />
+    <Content Include="allicon\play_16x16.gif" />
+    <Content Include="allicon\preview_16x16.gif" />
+    <Content Include="allicon\print_16x16.gif" />
+    <Content Include="allicon\record_%28add%29_16x16.gif" />
+    <Content Include="allicon\record_%28copy%29_16x16.gif" />
+    <Content Include="allicon\record_%28delete%29_16x16.gif" />
+    <Content Include="allicon\record_%28edit%29_16x16.gif" />
+    <Content Include="allicon\record_16x16.gif" />
+    <Content Include="allicon\redo1_16x16.gif" />
+    <Content Include="allicon\redo2_16x16.gif" />
+    <Content Include="allicon\refresh_16x16.gif" />
+    <Content Include="allicon\registration1_%28add%29_16x16.gif" />
+    <Content Include="allicon\registration1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\registration1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\registration1_16x16.gif" />
+    <Content Include="allicon\registration2_%28add%29_16x16.gif" />
+    <Content Include="allicon\registration2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\registration2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\registration2_16x16.gif" />
+    <Content Include="allicon\relationships_16x16.gif" />
+    <Content Include="allicon\report1_%28add%29_16x16.gif" />
+    <Content Include="allicon\report1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\report1_16x16.gif" />
+    <Content Include="allicon\report2_%28add%29_16x16.gif" />
+    <Content Include="allicon\report2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\report2_16x16.gif" />
+    <Content Include="allicon\report3_%28add%29_16x16.gif" />
+    <Content Include="allicon\report3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\report3_16x16.gif" />
+    <Content Include="allicon\research_16x16.gif" />
+    <Content Include="allicon\restore_16x16.gif" />
+    <Content Include="allicon\reverse_16x16.gif" />
+    <Content Include="allicon\right_16x16.gif" />
+    <Content Include="allicon\save_16x16.gif" />
+    <Content Include="allicon\script_%28add%29_16x16.gif" />
+    <Content Include="allicon\script_%28delete%29_16x16.gif" />
+    <Content Include="allicon\script_%28edit%29_16x16.gif" />
+    <Content Include="allicon\script_%28start%29_16x16.gif" />
+    <Content Include="allicon\script_%28stop%29_16x16.gif" />
+    <Content Include="allicon\script_16x16.gif" />
+    <Content Include="allicon\search_16x16.gif" />
+    <Content Include="allicon\search_again_16x16.gif" />
+    <Content Include="allicon\security_%28add%29_16x16.gif" />
+    <Content Include="allicon\security_%28delete%29_16x16.gif" />
+    <Content Include="allicon\security_%28edit%29_16x16.gif" />
+    <Content Include="allicon\security_16x16.gif" />
+    <Content Include="allicon\select_all_16x16.gif" />
+    <Content Include="allicon\server1_%28add%29_16x16.gif" />
+    <Content Include="allicon\server1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\server1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\server1_%28start%29_16x16.gif" />
+    <Content Include="allicon\server1_%28stop%29_16x16.gif" />
+    <Content Include="allicon\server1_16x16.gif" />
+    <Content Include="allicon\server2_%28add%29_16x16.gif" />
+    <Content Include="allicon\server2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\server2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\server2_%28start%29_16x16.gif" />
+    <Content Include="allicon\server2_%28stop%29_16x16.gif" />
+    <Content Include="allicon\server2_16x16.gif" />
+    <Content Include="allicon\servers_16x16.gif" />
+    <Content Include="allicon\settings1_16x16.gif" />
+    <Content Include="allicon\settings2_16x16.gif" />
+    <Content Include="allicon\shopping_cart_%28add%29_16x16.gif" />
+    <Content Include="allicon\shopping_cart_%28delete%29_16x16.gif" />
+    <Content Include="allicon\shopping_cart_%28edit%29_16x16.gif" />
+    <Content Include="allicon\shopping_cart_16x16.gif" />
+    <Content Include="allicon\sitemap_16x16.gif" />
+    <Content Include="allicon\skip_backward_16x16.gif" />
+    <Content Include="allicon\skip_forward_16x16.gif" />
+    <Content Include="allicon\sort_by_date_16x16.gif" />
+    <Content Include="allicon\sort_by_name_16x16.gif" />
+    <Content Include="allicon\sort_by_quantity_16x16.gif" />
+    <Content Include="allicon\sound_%28delete%29_16x16.gif" />
+    <Content Include="allicon\sound_%28play%29_16x16.gif" />
+    <Content Include="allicon\sound_%28stop%29_16x16.gif" />
+    <Content Include="allicon\sound_16x16.gif" />
+    <Content Include="allicon\stop_16x16.gif" />
+    <Content Include="allicon\strike_16x16.gif" />
+    <Content Include="allicon\support1_%28add%29_16x16.gif" />
+    <Content Include="allicon\support1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\support1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\support1_16x16.gif" />
+    <Content Include="allicon\support2_%28add%29_16x16.gif" />
+    <Content Include="allicon\support2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\support2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\support2_16x16.gif" />
+    <Content Include="allicon\table_%28add%29_16x16.gif" />
+    <Content Include="allicon\table_%28delete%29_16x16.gif" />
+    <Content Include="allicon\table_%28edit%29_16x16.gif" />
+    <Content Include="allicon\table_16x16.gif" />
+    <Content Include="allicon\table_align_columns_16x16.gif" />
+    <Content Include="allicon\table_align_rows_16x16.gif" />
+    <Content Include="allicon\table_auto_format_16x16.gif" />
+    <Content Include="allicon\table_borders_16x16.gif" />
+    <Content Include="allicon\table_cell_alignment_16x16.gif" />
+    <Content Include="allicon\table_merge_cells_16x16.gif" />
+    <Content Include="allicon\table_split_cells_16x16.gif" />
+    <Content Include="allicon\text_align_center_16x16.gif" />
+    <Content Include="allicon\text_align_left_16x16.gif" />
+    <Content Include="allicon\text_align_right_16x16.gif" />
+    <Content Include="allicon\text_indent_16x16.gif" />
+    <Content Include="allicon\text_justify_16x16.gif" />
+    <Content Include="allicon\text_outdent_16x16.gif" />
+    <Content Include="allicon\tile_windows_horizontally_16x16.gif" />
+    <Content Include="allicon\tile_windows_vertically_16x16.gif" />
+    <Content Include="allicon\time_16x16.gif" />
+    <Content Include="allicon\trash_%28add%29_16x16.gif" />
+    <Content Include="allicon\trash_%28delete%29_16x16.gif" />
+    <Content Include="allicon\trash_%28edit%29_16x16.gif" />
+    <Content Include="allicon\trash_16x16.gif" />
+    <Content Include="allicon\turn-off_16x16.gif" />
+    <Content Include="allicon\turn-on_16x16.gif" />
+    <Content Include="allicon\underline_16x16.gif" />
+    <Content Include="allicon\undo1_16x16.gif" />
+    <Content Include="allicon\undo2_16x16.gif" />
+    <Content Include="allicon\unlock_16x16.gif" />
+    <Content Include="allicon\unordered_list_16x16.gif" />
+    <Content Include="allicon\up_16x16.gif" />
+    <Content Include="allicon\user1_%28add%29_16x16.gif" />
+    <Content Include="allicon\user1_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user1_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user1_16x16.gif" />
+    <Content Include="allicon\user2_%28add%29_16x16.gif" />
+    <Content Include="allicon\user2_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user2_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user2_16x16.gif" />
+    <Content Include="allicon\user3_%28add%29_16x16.gif" />
+    <Content Include="allicon\user3_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user3_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user3_16x16.gif" />
+    <Content Include="allicon\user4_%28add%29_16x16.gif" />
+    <Content Include="allicon\user4_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user4_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user4_16x16.gif" />
+    <Content Include="allicon\user5_%28add%29_16x16.gif" />
+    <Content Include="allicon\user5_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user5_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user5_16x16.gif" />
+    <Content Include="allicon\user6_%28add%29_16x16.gif" />
+    <Content Include="allicon\user6_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user6_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user6_16x16.gif" />
+    <Content Include="allicon\user7_%28add%29_16x16.gif" />
+    <Content Include="allicon\user7_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user7_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user7_16x16.gif" />
+    <Content Include="allicon\user8_%28add%29_16x16.gif" />
+    <Content Include="allicon\user8_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user8_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user8_16x16.gif" />
+    <Content Include="allicon\user9_%28add%29_16x16.gif" />
+    <Content Include="allicon\user9_%28delete%29_16x16.gif" />
+    <Content Include="allicon\user9_%28edit%29_16x16.gif" />
+    <Content Include="allicon\user9_16x16.gif" />
+    <Content Include="allicon\video_%28add%29_16x16.gif" />
+    <Content Include="allicon\video_%28delete%29_16x16.gif" />
+    <Content Include="allicon\video_%28edit%29_16x16.gif" />
+    <Content Include="allicon\video_%28play%29_16x16.gif" />
+    <Content Include="allicon\video_%28stop%29_16x16.gif" />
+    <Content Include="allicon\video_16x16.gif" />
+    <Content Include="allicon\view_16x16.gif" />
+    <Content Include="allicon\wait_16x16.gif" />
+    <Content Include="allicon\web-server_%28add%29_16x16.gif" />
+    <Content Include="allicon\web-server_%28delete%29_16x16.gif" />
+    <Content Include="allicon\web-server_%28edit%29_16x16.gif" />
+    <Content Include="allicon\web-server_%28start%29_16x16.gif" />
+    <Content Include="allicon\web-server_%28stop%29_16x16.gif" />
+    <Content Include="allicon\web-server_16x16.gif" />
+    <Content Include="allicon\web_%28add%29_16x16.gif" />
+    <Content Include="allicon\web_%28delete%29_16x16.gif" />
+    <Content Include="allicon\web_%28edit%29_16x16.gif" />
+    <Content Include="allicon\web_16x16.gif" />
+    <Content Include="allicon\wizard_16x16.gif" />
+    <Content Include="allicon\zoom_16x16.gif" />
+    <Content Include="allicon\zoom_in_16x16.gif" />
+    <Content Include="allicon\zoom_out_16x16.gif" />
+    <EmbeddedResource Include="ico\newicon.ico" />
+    <Content Include="newicon.ico" />
+    <EmbeddedResource Include="ico\statusIcon.ico" />
+    <EmbeddedResource Include="AppParams.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ico\16Status.ico" />
+    <Content Include="doc\executesql.txt" />
+    <EmbeddedResource Include="Icon\16Status.ico" />
+    <Content Include="Icon\24Icon.ico" />
+    <Content Include="Icon\32Icon.ico" />
+    <None Include="Image\menu\about.gif" />
+    <None Include="Image\menu\addlog.gif" />
+    <None Include="Image\menu\connectdb.gif" />
+    <None Include="Image\menu\db.gif" />
+    <None Include="Image\menu\del.gif" />
+    <None Include="Image\menu\dellog.gif" />
+    <None Include="Image\menu\key.gif" />
+    <None Include="Image\menu\note.gif" />
+    <None Include="Image\menu\send.gif" />
+    <None Include="Image\menu\setlib.gif" />
+    <None Include="Image\status\currconn.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccessLibrary\AccessLibrary.csproj">
+      <Project>{28dff11d-e4a9-4578-aafa-9b3d36e4350a}</Project>
+      <Name>AccessLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessCommon\BaseBusiness.csproj">
+      <Project>{6424495e-4609-4040-9cd5-85ad63843084}</Project>
+      <Name>BaseBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenBusiness\GenBusiness.csproj">
+      <Project>{0e08d3c7-5df0-4650-a26f-3e839a618a72}</Project>
+      <Name>GenBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenClassLibrary\GenClassLibrary.csproj">
+      <Project>{0010ee50-b6ce-4cd4-acd8-fd9625968124}</Project>
+      <Name>GenClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GenDataLibrary\GenDataLibrary.csproj">
+      <Project>{69a1efdc-be3c-4a48-b82e-2937cf512235}</Project>
+      <Name>GenDataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iCat.TextEditor\Project\iCat.TextEditor.csproj">
+      <Project>{2D18BE89-D210-49EB-A9DD-2246FBB3DF6D}</Project>
+      <Name>iCat.TextEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogLibrary\LogLibrary.csproj">
+      <Project>{fb492f07-5f9b-4b0b-8698-57ddd7555d69}</Project>
+      <Name>LogLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnKeyGen\SnKeyGen.csproj">
+      <Project>{0391c0e0-c7ae-440b-b3b3-c8f36c647329}</Project>
+      <Name>SnKeyGen</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

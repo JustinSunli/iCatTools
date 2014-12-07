@@ -1,0 +1,13 @@
+﻿在新增和编辑对话框中如果设计有下拉框形式的控件，可参看以下代码替换现有生成的代码：
+{
+    fieldLabel: '所属领域',	//需根据实际业务设定
+    name: bookinformation.domainTypeId,	//对应数据库字段，勿用实际字符
+    store: Sys.App.Book.Common.storeBookDomainType,	//调用UICommon里已设定的
+    hiddenName: 'domainTypeId',   //很关键的配置，与store指定的field对应
+    allowBlank: false,	//允许为空（当前false为不允许）
+    editable: false,	//是否可编辑
+    queryMode: 'remote',	//如果调用非静态store则设定为remote，否则为local
+    displayField: 'domainName',	//显示----与store指定的field对应
+    valueField: 'domainTypeId',	//显示----与store指定的field对应
+    xtype: 'combo'
+},
